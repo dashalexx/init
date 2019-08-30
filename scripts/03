@@ -1,0 +1,58 @@
+#!/bin/bash
+
+echo "Калькулятор"
+
+if [ $# != 3 ];
+then
+	echo "Введите '+', '-', 'x' или '/' и два числа"
+	exit 1
+fi
+
+sum ()
+{
+	echo "Сумма равна "
+	s=$(($1 + $2))
+	echo $s
+}
+
+subtraction ()
+{
+	echo "Разность равна "
+	s=$(($1 - $2))
+	echo $s
+}
+
+mult ()
+{
+	echo "Произведение равно "
+	s=$(($1 * $2))
+	echo $s
+}
+
+div ()
+{
+	echo "Результат деления равен "
+	s=$(($1 / $2))
+	echo $s
+}
+
+if [[ "$1" = "+" ]]
+	then
+		sum $2 $3
+		exit 0
+	elif [[ "$1" = "-" ]]
+	then
+		subtraction $2 $3
+		exit 0
+	elif [[ "$1" = "x" ]]
+	then
+		mult $2 $3
+		exit 0
+	elif [[ "$1" = "/" ]]
+	then
+		div $2 $3
+		exit 0
+	else
+		echo "Error !"
+		exit 1
+fi
